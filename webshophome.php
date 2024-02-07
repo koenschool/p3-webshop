@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Bin</h1>
+    <h1></h1>
+    <ul>
+
+    </ul>
 </body>
 </html>
