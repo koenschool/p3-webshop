@@ -19,6 +19,6 @@
             <h2 class="right"><a href="klanten.php">Klanten.</a></h2><br><br><br><br>
             <img class="left" src="img/pak2.jpg" alt="strak_pak" width="20%" height="20%">
             <img  class="right" src="img/office.jpg" alt="mensen_in_kantoor" width="20%" height="20%">
-        <footer><a href="overons.php">over ons</a></footer>
+
 </body>
 </html>
