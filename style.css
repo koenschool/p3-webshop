@@ -81,6 +81,7 @@ h2.right{
     font-size: 175%;
     display: flex;
     justify-content: center;
+    margin-bottom: 10%;
 }
 
 .producten th, td{

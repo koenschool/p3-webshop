@@ -30,9 +30,9 @@ echo '<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek o
 echo "<table border=1px id='myTable'  style='max-width: 100px;'";
     echo "<tr>";
     echo "<th>". "id"."";
-    echo "<th class='merk' onclick='sortTable()'>". "merk"."";
+    echo "<th>". "merk"."";
     echo "<th>". "naam"."";
-    echo "<th>". "prijs"."";
+    echo "<th class='prijs' onclick='sortTable()'>". "prijs"."";
     echo "<th>". "wijzigen"."";
     echo "<th>". "verijderen"."";
     echo "</tr>";

@@ -38,8 +38,8 @@ function myFunction() {
       rows = table.rows;
       for (i = 1; i < (rows.length - 1); i++) {
         shouldSwitch = false;
-        x = rows[i].getElementsByTagName("TD")[1];
-        y = rows[i + 1].getElementsByTagName("TD")[1];
+        x = rows[i].getElementsByTagName("TD")[3];
+        y = rows[i + 1].getElementsByTagName("TD")[3];
         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
           shouldSwitch = true;
           break;
