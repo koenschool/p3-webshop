@@ -4,12 +4,10 @@
 
 
         include "connect.php";        
-        echo "mijn id is: ". $_GET['id']. "<br>";
         $sql="SELECT * FROM producten WHERE id = :id";
         $stmt = $conn->prepare($sql);
         $stmt->execute([':id'=>$_GET['id']]);
         $result =$stmt->fetch(PDO::FETCH_ASSOC);
-        print_r($result);
     }
 
 
@@ -21,6 +19,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>wijzig Product</title>
+  <link rel="icon" href="img/pak.jpg" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>

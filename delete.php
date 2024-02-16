@@ -19,7 +19,7 @@ $stmt->execute(
 
     if($stmt->rowCount() == 1){
         echo "<script>alert('Product is verijderd')</script>";
-        echo "<script>location.replace('webshophome.php'); </script>";
+        echo "<script>location.replace('producten.php'); </script>";
     } else{
         echo '<script>alert("Product is NIET verwijderd")</scriptlocation.replace>';
     }

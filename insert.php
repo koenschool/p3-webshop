@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>product toevoegen</title>
+  <link rel="icon" href="img/pak.jpg" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,8 +13,8 @@
 
 <form method="post">
 
-<label for="id">id:</label>
-  <input type="text" id="id" name="id" required><br>
+<!-- <label for="id">id:</label>
+  <input type="text" id="id" name="id" required><br> -->
 
   <label for="merk">merk:</label>
   <input type="text" id="merk" name="merk" required><br>
@@ -34,15 +35,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 include "connect.php";
 
 
-$sql= "INSERT INTO producten (id, merk, naam, prijs)
-       VALUES (:id, :merk, :naam, :prijs);";
+$sql= "INSERT INTO producten (merk, naam, prijs)
+       VALUES (:merk, :naam, :prijs);";
 
 
 $query = $conn->prepare($sql);
 
 $query->execute(
   [
-      'id'=>$_POST['id'],
+      // 'id'=>$_POST['id'],
       'merk'=>$_POST['merk'],
       'naam'=>$_POST['naam'],
       'prijs'=>$_POST['prijs']
@@ -50,7 +51,7 @@ $query->execute(
 );
 echo "<script>
 alert('Product is toegevoegd');
-location.replace('webshophome.php'); </script>";
+location.replace('producten.php'); </script>";
 
 }
 

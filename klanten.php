@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strak in pak</title>
+    <title>klanten</title>
+    <link rel="icon" href="img/pak.jpg" type="image/x-icon">
     <script defer src="code.js"></script>
     <link rel="stylesheet" href="style.css?<?php echo time(); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
