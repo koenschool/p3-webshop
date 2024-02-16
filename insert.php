@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>fietsen Form</title>
-  <link rel="stylesheet" href="allcss.css">
+  <title>product toevoegen</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>fietsen Form</h2>
+<h2>product toevoegen</h2>
 
 <form method="post">
+
+<label for="id">id:</label>
+  <input type="text" id="id" name="id" required><br>
 
   <label for="merk">merk:</label>
   <input type="text" id="merk" name="merk" required><br>
 
-  <label for="prijs">naam:</label>
-  <input type="number" id="prijs" name="prijs" required><br>
+  <label for="naam">naam:</label>
+  <input type="text" id="naam" name="naam" required><br>
 
-  <label for="foto">Foto:</label>
-  <input type="text" id="foto" name="foto" required><br>
+  <label for="prijs">prijs:</label>
+  <input type="number" id="prijs" name="prijs" required><br>
 
   <input type="submit" name value="Submit">
 </form>
@@ -31,21 +34,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 include "connect.php";
 
 
-$sql= "INSERT INTO producten (merk, type, prijs, foto)
-       VALUES (:merk, :type, :prijs, :foto);";
+$sql= "INSERT INTO producten (id, merk, naam, prijs)
+       VALUES (:id, :merk, :naam, :prijs);";
 
 
 $query = $conn->prepare($sql);
 
 $query->execute(
-    [
-        'merk'=>$_POST['merk'],
-        'type'=>$_POST['type'],
-        'prijs'=>$_POST['prijs'],
-        'foto'=>$_POST['foto']
-    ]
+  [
+      'id'=>$_POST['id'],
+      'merk'=>$_POST['merk'],
+      'naam'=>$_POST['naam'],
+      'prijs'=>$_POST['prijs']
+  ]
 );
-echo "<script>location.replace('select.php'); </script>";
+echo "<script>
+alert('Product is toegevoegd');
+location.replace('webshophome.php'); </script>";
 
 }
 

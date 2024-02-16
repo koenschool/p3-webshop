@@ -92,7 +92,7 @@ h2.right{
     padding-right: 50px; ;
 }
 
-input, select, label{
+input, select, label, .voeg{
     font-family: Playfair Display;
     color:#3A466C;
     background-color: #D9D9D9;
@@ -114,6 +114,9 @@ select{
     margin-right:10%;
 }
 
+.voeg{
+    margin-right:15%;
+}
 
 
 table{

@@ -5,7 +5,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET" &&
         include "connect.php";
 
 $sql= "
-        DELETE FROM fietsen 
+        DELETE FROM producten 
         WHERE id = :id";
 
 
@@ -18,10 +18,10 @@ $stmt->execute(
 );
 
     if($stmt->rowCount() == 1){
-        echo "<script>alert('Fiets is verijderd')</script>";
-        echo "<script>location.replace('select.php'); </script>";
+        echo "<script>alert('Product is verijderd')</script>";
+        echo "<script>location.replace('webshophome.php'); </script>";
     } else{
-        echo '<script>alert("Fiets is NIET verwijderd")</scriptlocation.replace>';
+        echo '<script>alert("Product is NIET verwijderd")</scriptlocation.replace>';
     }
 
 

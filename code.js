@@ -1,3 +1,15 @@
+getal=0;
+function option(){
+  kies = document.getElementById("kies").value;
+  if(kies == "naam"){
+    getal = 2;
+  }
+  else if(kies == "merk"){
+    getal = 1;
+  }
+  document.getElementById("myInput").placeholder="Zoek op "+kies;
+}
+
 function myFunction() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
@@ -5,7 +17,7 @@ function myFunction() {
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[1];
+      td = tr[i].getElementsByTagName("td")[getal];
       if (td) {
         txtValue = td.textContent || td.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
