@@ -34,7 +34,7 @@ echo "<table border=1px id='myTable'  style='max-width: 100px;'";
     echo "<th>". "naam"."";
     echo "<th class='prijs' onclick='sortTable()'>". "prijs"."";
     echo "<th>". "wijzigen"."";
-    echo "<th>". "verijderen"."";
+    echo "<th>". "verwijderen"."";
     echo "</tr>";
 foreach ($result as $row) {
     echo "<tr>";

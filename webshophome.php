@@ -18,8 +18,8 @@
      </header>
             <h2 class="left"><a href="producten.php">Strakke pakken.</a></h2>
             <h2 class="right"><a href="klanten.php">Klanten.</a></h2><br><br><br><br>
-            <img class="left" src="img/pak2.jpg" alt="strak_pak" width="20%" height="20%">
-            <img  class="right" src="img/office.jpg" alt="mensen_in_kantoor" width="20%" height="20%">
+            <img class="left" src="img/pak2.jpg" alt="strak_pak" style='width: 300px; height: 200px; object-fit: cover;'>
+            <img  class="right" src="img/office.jpg" alt="mensen_in_kantoor" style='width: 300px; height: 200px; object-fit: cover;'>
 
 </body>
 </html>

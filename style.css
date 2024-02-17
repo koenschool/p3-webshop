@@ -30,8 +30,21 @@ body{
     position:absolute;
 }
 
+
+a:hover{
+    color:#FFFEFF;
+}
+
+footer a:hover{
+    color:#8A90A9;
+}
+
+.menu-content a:hover{
+    color:#FFFEFF;
+    border-color:#3A466C;
+}
+
 .menu:hover .menu-content{
-    color:blue;
     display:block;
     background-color:grey;
 }
@@ -42,17 +55,6 @@ body{
 
 }
 
-
-
-.dropdown-content a:hover {
-    background-color: #E9E9E9;
-    color: #00a8c7;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
   header h1{
     font-size:500%;
     text-align: center;
@@ -60,20 +62,20 @@ body{
 
 .left{
 float:left;
-margin-left: 10%;
+margin-left: 15%;
 }
 
 .right{
 float: right;
-margin-right: 10%;
+margin-right: 15%;
 }
 
 h2.left{
-    margin-left: 14%;
+    margin-left: 19%;
 }
 
 h2.right{
-    margin-right: 16.5%;
+    margin-right: 21.75%;
 }
 
 
