@@ -29,7 +29,7 @@ echo '<label for="sort">sorteer op:</label>
 echo '<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek op" title="Type in a name">';
 echo "<table border=1px id='myTable'  style='max-width: 100px;'";
     echo "<tr>";
-    echo "<th>". "id"."";
+    echo "<th>". "productid"."";
     echo "<th>". "merk"."";
     echo "<th>". "naam"."";
     echo "<th class='prijs' onclick='sortTable()'>". "prijs"."";
@@ -38,12 +38,12 @@ echo "<table border=1px id='myTable'  style='max-width: 100px;'";
     echo "</tr>";
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>". $row['id'] . "";
+    echo "<td>". $row['productid'] . "";
     echo "<td>". $row['merk'] . "";
     echo "<td>". $row['naam']. "";
     echo "<td>". $row['prijs']. "";
-    echo "<td><a href='edit.php?id=" . $row['id'] ."'>" . "wijzig</a></td>";
-    echo "<td><a href='delete.php?id=" . $row['id'] ."'>" . "verwijder</a></td>";
+    echo "<td><a href='edit.php?id=" . $row['productid'] ."'>" . "wijzig</a></td>";
+    echo "<td><a href='delete.php?id=" . $row['productid'] ."'>" . "verwijder</a></td>";
     echo "</tr>";
     echo "</div>";
 }
