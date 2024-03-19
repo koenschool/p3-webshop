@@ -8,17 +8,17 @@ $sql= "UPDATE producten SET
         merk = :merk,
         naam = :naam,
         prijs = :prijs
-    WHERE id = :id
+    WHERE productid = :productid
     ";
 
 $stmt = $conn->prepare($sql);
 
 $stmt->execute(
     [
-        'id'=>$_POST['id'],
+        'productid'=>$_POST['productid'],
         'merk'=>$_POST['merk'],
         'naam'=>$_POST['naam'],
-        'prijs'=>$_POST['prijs']
+        'prijs'=>$_POST['prijs'],
     ]
 );
     if($stmt->rowCount() == 1){

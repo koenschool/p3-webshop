@@ -1,12 +1,12 @@
 <?php
 
-    if(isset($_GET['id'])){
+    if(isset($_GET['productid'])){
 
 
         include "connect.php";        
-        $sql="SELECT * FROM producten WHERE id = :id";
+        $sql="SELECT * FROM producten WHERE productid = :productid";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([':id'=>$_GET['id']]);
+        $stmt->execute([':productid'=>$_GET['productid']]);
         $result =$stmt->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -27,7 +27,7 @@
 <h2>wijzig product</h2>
 
 <form action="edit_db.php" method="post">
-<input type="number" id="id" name="id" required value="<?php echo $result['id']?>" hidden>
+<input type="number" id="productid" name="productid" required value="<?php echo $result['productid']?>" hidden>
 
   <label for="merk">Merk:</label>
   <input type="text" id="merk" name="merk" required value="<?php echo $result['merk']?>"><br>
@@ -50,18 +50,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 include "connect.php";
 
 
-$sql= "INSERT INTO producten (id, merk, naam, prijs)
-       VALUES (:id, :merk, :naam, :prijs);";
+$sql= "INSERT INTO producten (productid, merk, naam, prijs)
+       VALUES (:productid, :merk, :naam, :prijs);";
 
 
 $query = $conn->prepare($sql);
 
 $query->execute(
     [
-        'id'=>$_POST['id'],
+        'productid'=>$_POST['productid'],
         'merk'=>$_POST['merk'],
         'type'=>$_POST['naam'],
-        'prijs'=>$_POST['prijs']
+        'prijs'=>$_POST['prijs'],
     ]
 );
 

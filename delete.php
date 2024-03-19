@@ -1,19 +1,19 @@
 <?php
 if($_SERVER['REQUEST_METHOD'] == "GET" &&
-    isset($_GET['id'])){
+    isset($_GET['productid'])){
 
         include "connect.php";
 
 $sql= "
         DELETE FROM producten 
-        WHERE id = :id";
+        WHERE productid = :productid";
 
 
 $stmt = $conn->prepare($sql);
 
 $stmt->execute(
     [
-        ':id'=>$_GET['id']
+        ':productid'=>$_GET['productid']
     ]
 );
 
