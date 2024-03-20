@@ -32,7 +32,7 @@ echo "<table border=1px id='myTable'  style='max-width: 100px;'";
     echo "<th>". "productid"."";
     echo "<th>". "merk"."";
     echo "<th>". "naam"."";
-    echo "<th class='prijs' onclick='sortTable()'>". "prijs"."";
+    echo "<th onclick='sortTable()'>". "prijs"."";
     echo "<th>". "wijzigen"."";
     echo "<th>". "verwijderen"."";
     echo "</tr>";
@@ -41,7 +41,7 @@ foreach ($result as $row) {
     echo "<td>". $row['productid'] . "";
     echo "<td>". $row['merk'] . "";
     echo "<td>". $row['naam']. "";
-    echo "<td>". $row['prijs']. "";
+    echo "<td  class='prijs' >". $row['prijs']. "";
     echo "<td><a href='edit.php?productid=" . $row['productid'] ."'>" . "wijzig</a></td>";
     echo "<td><a href='delete.php?productid=" . $row['productid'] ."'>" . "verwijder</a></td>";
     echo "</tr>";
