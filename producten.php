@@ -42,8 +42,8 @@ foreach ($result as $row) {
     echo "<td>". $row['merk'] . "";
     echo "<td>". $row['naam']. "";
     echo "<td  class='prijs' >". $row['prijs']. "";
-    echo "<td><a href='edit.php?productid=" . $row['productid'] ."'>" . "wijzig</a></td>";
-    echo "<td><a href='delete.php?productid=" . $row['productid'] ."'>" . "verwijder</a></td>";
+    echo "<td><a class='button add' href='edit.php?productid=" . $row['productid'] ."'>" . "wijzig</a></td>";
+    echo "<td><a class='button delete' href='delete.php?productid=" . $row['productid'] ."'>" . "verwijder</a></td>";
     echo "</tr>";
     echo "</div>";
 }

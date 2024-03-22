@@ -32,6 +32,7 @@ body{
 
 
 a:hover{
+    background-color: #3A466C;
     color:#FFFEFF;
 }
 
@@ -138,4 +139,27 @@ text-align: center;
 
 .prijs{
     right:inherit;
+}
+
+.button{
+    display:flex;
+    justify-content: center;
+    font-size:75%;
+    border-color:#8A90A9;
+    border-radius:10%;
+    padding:1%;
+    /* border:0.1%; */
+    /* border-style: solid; */
+    background-color: #8A90A9;
+
+}
+
+.add:hover{
+    background-color: #3A466C !important;
+    color:#FFFEFF !important;
+}
+
+.delete:hover{
+    background-color: red !important;
+    color:#FFFEFF !important;
 }
