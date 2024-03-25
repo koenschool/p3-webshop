@@ -19,7 +19,7 @@ $stmt->execute(
         'adres'=>$_POST['adres'],
     ]
 );
-    if($stmt->rowCount() == 1){
+    if($stmt->rowCount() <= 1){
         echo "<script>alert('klant is gewijzigd')</script>";
         echo "<script>location.replace('klanten.php'); </script>";
     } else{
