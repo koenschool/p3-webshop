@@ -30,7 +30,7 @@
 <input type="number" id="klantid" name="klantid" required value="<?php echo $result['klantid']?>" hidden>
 
   <label for="email">Email:</label>
-  <input type="text" id="email" name="email" required value="<?php echo $result['email']?>"><br>
+  <input type="email" id="email" name="email" required value="<?php echo $result['email']?>"><br>
 
   <!-- <label for="id">ID:</label> -->
 

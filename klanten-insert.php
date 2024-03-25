@@ -17,7 +17,7 @@
   <input type="text" id="id" name="id" required><br> -->
 
   <label for="email">email:</label>
-  <input type="text" id="email" name="email" required><br>
+  <input type="email" id="email" name="email" required><br>
 
   <label for="adres">adres:</label>
   <input type="text" id="adres" name="adres" required><br>
