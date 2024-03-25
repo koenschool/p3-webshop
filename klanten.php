@@ -34,8 +34,8 @@
     echo "<td>". $row['klantid'] . "";
     echo "<td>". $row['email'] . "";
     echo "<td>". $row['adres']. "";
-    echo "<td><a href='klanten-edit.php?klantid=" . $row['klantid'] ."'>" . "wijzig</a></td>";
-    echo "<td><a href='klanten-delete.php?klantid=" . $row['klantid'] ."'>" . "verwijder</a></td>";
+    echo "<td><a class='button add' href='klanten-edit.php?klantid=" . $row['klantid'] ."'>" . "wijzig</a></td>";
+    echo "<td><a class='button delete' href='klanten-delete.php?klantid=" . $row['klantid'] ."'>" . "verwijder</a></td>";
     echo "</tr>";
     echo "</div>";
 }

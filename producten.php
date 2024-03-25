@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body onload="option()">
+
 <?php
 include "nav.php" ;
 include "connect.php" ;
@@ -19,31 +20,41 @@ $sql="SELECT * FROM producten";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result =$stmt->fetchALL(PDO::FETCH_ASSOC);
-echo "<div class='producten'>";
-echo "<p><a class='voeg' href='insert.php'>Product toevoegen.</a></p>";
-echo '<label for="sort">sorteer op:</label>
-<select name="sort" id="kies" onchange="option()">
-  <option value="merk">merk</option>
-  <option value="naam">naam</option>
-</select>';
-echo '<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek op" title="Type in a name">';
-echo "<table border=1px id='myTable'  style='max-width: 100px;'";
-    echo "<tr>";
-    echo "<th>". "productid"."";
-    echo "<th>". "merk"."";
-    echo "<th>". "naam"."";
-    echo "<th onclick='sortTable()'>". "prijs"."";
-    echo "<th>". "wijzigen"."";
-    echo "<th>". "verwijderen"."";
-    echo "</tr>";
+?>
+<h1>Producten tabel.</h1>
+    <div class="zoek">
+    <label for="sort">sorteer op:</label>
+    <select name="sort" id="kies" onchange="option()">
+        <option value="merk">merk</option>
+        <option value="naam">naam</option>
+    </select>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek op" title="Type in a name">
+    </div>
+    <p class='voeg' ><a href='insert.php'>Product toevoegen.</a></p>
+    <div class='producten'>
+    <table border="1px" id="myTable" style="max-width: 100px;">
+        <tr>
+            <th>productid</th>
+            <th>merk</th>
+            <th>naam</th>
+            <th onclick="sortTable()">prijs</th>
+            <th>wijzigen</th>
+            <th>verwijderen</th>
+        </tr>
+</div>
+
+
+
+<?php
+
 foreach ($result as $row) {
     echo "<tr>";
     echo "<td>". $row['productid'] . "";
     echo "<td>". $row['merk'] . "";
     echo "<td>". $row['naam']. "";
-    echo "<td  class='prijs' >". $row['prijs']. "";
-    echo "<td><a href='edit.php?productid=" . $row['productid'] ."'>" . "wijzig</a></td>";
-    echo "<td><a href='delete.php?productid=" . $row['productid'] ."'>" . "verwijder</a></td>";
+    echo "<td  class='prijs' >€". $row['prijs']. "";
+    echo "<td class='tdb' ><a class='button add' href='edit.php?productid=" . $row['productid'] ."'>" . "wijzig</a></td>";
+    echo "<td class='tdb' ><a class='button delete' href='delete.php?productid=" . $row['productid'] ."'>" . "verwijder</a></td>";
     echo "</tr>";
     echo "</div>";
 }

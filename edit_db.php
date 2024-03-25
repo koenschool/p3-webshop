@@ -21,7 +21,7 @@ $stmt->execute(
         'prijs'=>$_POST['prijs'],
     ]
 );
-    if($stmt->rowCount() == 1){
+    if($stmt->rowCount() <= 1){
         echo "<script>alert('Product is gewijzigd')</script>";
         echo "<script>location.replace('producten.php'); </script>";
     } else{
