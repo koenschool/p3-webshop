@@ -4,7 +4,7 @@
     <a href='webshophome.php'>home</a>
     <a href='producten.php'>producten</a>
     <a href='klanten.php'>klanten</a>
-    <a href='overons.php'>over ons</a>
+    <a href='review.php'>review</a>
 </div>
 </nav>
-<footer><a href="overons.php">over ons</a></footer>
+<footer><a href="review.php">Laat een review achter.</a></footer>
