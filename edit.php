@@ -26,7 +26,7 @@
 
 <h2>wijzig product</h2>
 
-<form action="edit_db.php" method="post">
+<form action="edit_db.php" method="post" class="rows">
 <input type="number" id="productid" name="productid" required value="<?php echo $result['productid']?>" hidden>
 
   <label for="merk">Merk:</label>
@@ -40,7 +40,7 @@
   <label for="prijs">Prijs:</label>
   <input type="number" id="prijs" name="prijs" required value="<?php echo $result['prijs']?>"><br>
 
-  <input type="submit" name value="Submit">
+  <input class="hover" type="submit" name value="Submit">
 </form>
 
 

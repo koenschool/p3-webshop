@@ -11,8 +11,7 @@
 
 <h2>product toevoegen</h2>
 
-<form method="post">
-
+<form method="post" class="rows">
 <!-- <label for="id">id:</label>
   <input type="text" id="id" name="id" required><br> -->
 
@@ -25,7 +24,7 @@
   <label for="prijs">prijs:</label>
   <input type="number" id="prijs" name="prijs" required><br>
 
-  <input type="submit" name value="Submit">
+  <input class="hover" type="submit" name value="Submit">
 </form>
 
 

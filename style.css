@@ -31,7 +31,8 @@ body{
 }
 
 
-a:hover, p a:hover{
+a:hover, p a:hover, .hover:hover{
+    cursor: pointer;
     background-color: #3A466C;
     color:#FFFEFF;
 }
@@ -96,13 +97,25 @@ h2.right{
     padding-right: 50px; ;
 }
 
-/* sorteer rules */
+/* sorteer/insert/edit rules */
 
 .zoek{
     font-size: 150%;
     display: flex;
     justify-content: center;
 }
+
+.rows{
+    font-size: 150%;
+}
+
+.hover{
+    margin-top:1%;
+    border-color:#3A466C;
+    border-radius:10px;
+    font-size:100%;
+}
+
  
 input, select, label, textarea, .voeg a{
     /* font-size:30%; */
@@ -156,7 +169,7 @@ text-align: center;
     text-align: right;
     font-size:75%;
     border-color:#8A90A9;
-    border-radius:30%;
+    border-radius:10px;
     padding:5%;
     background-color: #8A90A9;
 
