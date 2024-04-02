@@ -22,7 +22,7 @@
   <input type="text" id="naam" name="naam" required><br>
 
   <label for="prijs">prijs:</label>
-  <input type="number" id="prijs" name="prijs" required><br>
+  <input type="number" id="prijs" name="prijs" step="any" required><br>
 
   <input class="hover" type="submit" name value="Submit">
 </form>

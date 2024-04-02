@@ -38,7 +38,7 @@
   <input type="text" id="naam" name="naam" required value="<?php echo $result['naam']?>"><br>
 
   <label for="prijs">Prijs:</label>
-  <input type="number" id="prijs" name="prijs" required value="<?php echo $result['prijs']?>"><br>
+  <input type="number" id="prijs" name="prijs" step="any" required value="<?php echo $result['prijs']?>"><br>
 
   <input class="hover" type="submit" name value="Submit">
 </form>
