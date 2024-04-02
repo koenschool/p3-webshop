@@ -37,7 +37,7 @@ $result =$stmt->fetchALL(PDO::FETCH_ASSOC);
             <th>productid</th>
             <th>merk</th>
             <th>naam</th>
-            <th onclick="sortTable()">prijs</th>
+            <th onclick="sortTable()"><a class="prijs" >prijs</a></th>
             <th>wijzigen</th>
             <th>verwijderen</th>
         </tr>
