@@ -3,25 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>review</title>
-    <link rel="icon" href="img/pak.jpg" type="image/x-icon">
-    <script defer src="code.js"></script>
+    <title>Klantenreview</title>
     <link rel="stylesheet" href="style.css?<?php echo time(); ?>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
 <?php include "nav.php" ?>
+    <h2>Voer uw klantenreview in</h2>
+    <form action="review_details.php" method="POST">
+        <label for="naam">Naam:</label><br>
+        <input type="text" id="naam" name="naam" required><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="telefoonnummer">Telefoonnummer:</label><br>
+        <input type="tel" id="telefoonnummer" name="telefoonnummer" required><br><br>
+        
+        <label for="productid">Selecteer een product:</label><br>
+        <select id="productid" name="productid" required>
+            <option value="" disabled selected>Kies een product</option>
+            <?php
+                include "connect.php";
 
+                $sql = "SELECT productid, naam FROM producten";
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();
+                $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-<form method="post">
-
-  <input type="submit" class="submit" name="submit" value="Verstuur">
-</form>
+                if ($result) {
+                    foreach ($result as $row) {
+                        echo "<option value='" . $row["productid"] . "'>" . $row["naam"] . "</option>";
+                    }
+                }
+                ?>
+        </select><br><br>
+        
+        <label for="bericht">Bericht:</label><br>
+        <textarea id="bericht" name="bericht" rows="4" cols="50" required></textarea><br><br>
+        
+        <input type="submit" value="Verzenden">
+    </form>
 
 <?php
-?>
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        echo "er is gepost<br>";
+
+
+    $sql= "INSERT INTO klanteklacht (naam, productid, email, telefoonnummer, bericht)
+        VALUES (:naam, :productid, :email, :telefoonnummer, :bericht);";
+
+
+    $query = $conn->prepare($sql);
+
+    $query->execute(
+    [
+        // 'id'=>$_POST['id'],
+        'naam'=>$_POST['naam'],
+        'productid'=>$_POST['productid'],
+        'email'=>$_POST['email'],
+        'telefoonnummer'=>$_POST['telefoonnummer'],
+        'bericht'=>$_POST['bericht'],
+    ]
+    );
+    echo "<script>
+    alert('klacht is verzonden');
+    location.replace('review_details.php'); </script>";
+
+    }
+
+
+    if(isset($_POST)){
+
+    }
+
+    ?>
 
 </body>
 </html>
