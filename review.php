@@ -45,37 +45,30 @@
     </form>
 
 <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST"){
-        echo "er is gepost<br>";
+   if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    $naam = $_POST['naam'];
+    $productid = $_POST['productid'];
+    $email = $_POST['email'];
+    $telefoonnummer = $_POST['telefoonnummer'];
+    $bericht = $_POST['bericht'];
 
-
-    $sql= "INSERT INTO klanteklacht (naam, productid, email, telefoonnummer, bericht)
-        VALUES (:naam, :productid, :email, :telefoonnummer, :bericht);";
-
-
+    // SQL-query om gegevens in te voegen
+    $sql = "INSERT INTO klanteklacht (naam, productid, email, telefoonnummer, bericht) VALUES (:naam, :productid, :email, :telefoonnummer, :bericht)";
     $query = $conn->prepare($sql);
 
-    $query->execute(
-    [
-        // 'id'=>$_POST['id'],
-        'naam'=>$_POST['naam'],
-        'productid'=>$_POST['productid'],
-        'email'=>$_POST['email'],
-        'telefoonnummer'=>$_POST['telefoonnummer'],
-        'bericht'=>$_POST['bericht'],
-    ]
-    );
-    echo "<script>
-    alert('klacht is verzonden');
-    location.replace('review_details.php'); </script>";
+    // Uitvoeren van de query
+    $query->execute([
+        'naam' => $naam,
+        'productid' => $productid,
+        'email' => $email,
+        'telefoonnummer' => $telefoonnummer,
+        'bericht' => $bericht
+    ]);
 
-    }
-
-
-    if(isset($_POST)){
-
-    }
-
+    // Doorsturen naar review_details.php met de ingevulde gegevens
+    header("Location: review_details.php?naam=$naam&productid=$productid&email=$email&telefoonnummer=$telefoonnummer&bericht=$bericht");
+    exit();
+}
     ?>
 
 </body>

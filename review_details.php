@@ -3,16 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Klantenreview Details</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h2>ingevulde gegevens</h2>
-    <p><strong>Naam:</strong> <?php echo $_POST['naam']; ?></p>
-    <p><strong>Email:</strong> <?php echo $_POST['email']; ?></p>
-    <p><strong>Telefoonnummer:</strong> <?php echo $_POST['telefoonnummer']; ?></p>
-    <p><strong>Geselecteerd product:</strong> <?php echo $_POST['productid']; ?></p>
-    <p><strong>Bericht:</strong><br><?php echo $_POST['bericht']; ?></p>
-    <a href="webshophome.php">Naar home</a>
+    <?php include "nav.php" ?>
+    <h2>Klantenreview Details</h2>
+    <div>
+        <h3>Ingevulde gegevens:</h3>
+        <?php
+            // Gegevens ophalen uit de querystring
+            $naam = $_GET['naam'];
+            $productid = $_GET['productid'];
+            $email = $_GET['email'];
+            $telefoonnummer = $_GET['telefoonnummer'];
+            $bericht = $_GET['bericht'];
+
+            // Gegevens weergeven
+            echo "<p><strong>Naam:</strong> $naam</p>";
+            echo "<p><strong>Email:</strong> $email</p>";
+            echo "<p><strong>Telefoonnummer:</strong> $telefoonnummer</p>";
+
+            // Productnaam ophalen uit de database
+            include "connect.php";
+            $sql = "SELECT naam FROM producten WHERE productid = :productid";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute(['productid' => $productid]);
+            $product = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($product) {
+                echo "<p><strong>Geselecteerd product:</strong> " . $product['naam'] . "</p>";
+            }
+
+            echo "<p><strong>Bericht:</strong> $bericht</p>";
+        ?>
+    </div>
 </body>
 </html>
