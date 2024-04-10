@@ -20,8 +20,11 @@ $sql="SELECT * FROM producten";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result =$stmt->fetchALL(PDO::FETCH_ASSOC);
+
+
 ?>
 <h1>Producten tabel.</h1>
+<button onclick="admin()">Admin mode</button>
     <div class="zoek">
     <label for="sort">sorteer op:</label>
     <select name="sort" id="kies" onchange="option()">
@@ -34,12 +37,11 @@ $result =$stmt->fetchALL(PDO::FETCH_ASSOC);
     <div class='producten'>
     <table border="1px" id="myTable" style="max-width: 100px;">
         <tr>
-            <th>productid</th>
+            <th class='hide'>productid</th>
             <th>merk</th>
             <th>naam</th>
             <th onclick="sortTable()"><a class="prijs" >prijs</a></th>
-            <th>wijzigen</th>
-            <th>verwijderen</th>
+            <th colspan='2'>Actie</th>
         </tr>
 </div>
 
@@ -49,7 +51,7 @@ $result =$stmt->fetchALL(PDO::FETCH_ASSOC);
 
 foreach ($result as $row) {
     echo "<tr>";
-    echo "<td>". $row['productid'] . "";
+    echo "<td class='hide'>". $row['productid'] . "";
     echo "<td>". $row['merk'] . "";
     echo "<td>". $row['naam']. "";
     echo "<td  class='prijs' >€". $row['prijs']. "";

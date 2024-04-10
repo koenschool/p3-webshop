@@ -56,3 +56,21 @@ function myFunction() {
       }
       sortAsc = !sortAsc; // Flip the sort order for the next call
     }
+
+hide=true;
+function admin(){
+  switch (hide) {
+    case true:
+      for (let i = 0; i < document.getElementsByClassName("hide").length; i++) {
+        document.getElementsByClassName("hide")[i].style.display = "table-cell";
+      }
+      hide = false;
+      break;
+    case false:
+      for (let i = 0; i < document.getElementsByClassName("hide").length; i++) {
+        document.getElementsByClassName("hide")[i].style.display = "none";
+      }
+      hide = true;
+      break;
+    }
+}
