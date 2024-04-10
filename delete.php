@@ -24,6 +24,7 @@ $stmt->execute(
         echo '<script>alert("Product is NIET verwijderd")</scriptlocation.replace>';
     }
 
+    
 
 }
 
