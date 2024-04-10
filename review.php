@@ -9,7 +9,7 @@
 <body>
 <?php include "nav.php" ?>
     <h2>Voer uw klantenreview in</h2>
-    <form action="review_details.php" method="POST">
+    <form  method="POST">
         <label for="naam">Naam:</label><br>
         <input type="text" id="naam" name="naam" required><br><br>
         
