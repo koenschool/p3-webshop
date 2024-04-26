@@ -14,6 +14,7 @@
 <body onload="option()">
 
 <?php
+// nav en connectie maken
 include "nav.php" ;
 include "connect.php" ;
 $sql="SELECT * FROM producten";
@@ -22,10 +23,19 @@ $stmt->execute();
 $result =$stmt->fetchALL(PDO::FETCH_ASSOC);
 
 
+
 ?>
+
 <h1>Producten tabel.</h1>
-<button onclick="admin()">Admin mode</button>
+<?php
+session_start();
+if(isset($_SESSION['gebruikersnaam'])){
+if($_SESSION['gebruikersnaam'] == 'admin'){
+    echo "<button onclick='admin()'>Laat ID zien</button>";
+}}
+?>
     <div class="zoek">
+        <!-- search -->
     <label for="sort">sorteer op:</label>
     <select name="sort" id="kies" onchange="option()">
         <option value="merk">merk</option>
@@ -33,15 +43,27 @@ $result =$stmt->fetchALL(PDO::FETCH_ASSOC);
     </select>
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Zoek op" title="Type in a name">
     </div>
-    <p class='voeg' ><a href='insert.php'>Product toevoegen.</a></p>
+    <!-- tabel -->
+    <?php
+    if(isset($_SESSION['gebruikersnaam'])){
+        if($_SESSION['gebruikersnaam'] == 'admin'){
+            echo "<p class='voeg' ><a href='insert.php'>Product toevoegen.</a></p>";
+        }
+    }
+    ?>
     <div class='producten'>
-    <table border="1px" id="myTable" style="max-width: 100px;">
+    <table border="1px" id="myTable" width="1000px">
         <tr>
             <th class='hide'>productid</th>
             <th>merk</th>
             <th>naam</th>
             <th onclick="sortTable()"><a class="prijs" >prijs</a></th>
-            <th colspan='2'>Actie</th>
+            <?php
+                if(isset($_SESSION['gebruikersnaam'])){
+            if($_SESSION['gebruikersnaam'] == 'admin'){
+                echo "<th colspan='2'>Actie</th>";
+            }}
+            ?> 
         </tr>
 </div>
 
@@ -55,8 +77,11 @@ foreach ($result as $row) {
     echo "<td>". $row['merk'] . "";
     echo "<td>". $row['naam']. "";
     echo "<td  class='prijs' >€". $row['prijs']. "";
-    echo "<td class='tdb' ><a class='button add' href='edit.php?productid=" . $row['productid'] ."'>" . "wijzig</a></td>";
-    echo "<td class='tdb' ><a class='button delete' href='delete.php?productid=" . $row['productid'] ."'>" . "verwijder</a></td>";
+    if(isset($_SESSION['gebruikersnaam'])){
+    if($_SESSION['gebruikersnaam'] == 'admin'){
+        echo "<td class='tdb' ><a class='button add' href='edit.php?productid=" . $row['productid'] ."'>" . "wijzig</a></td>";
+        echo "<td class='tdb' ><a class='button delete' href='delete.php?productid=" . $row['productid'] ."'>" . "verwijder</a></td>";
+    }}
     echo "</tr>";
     echo "</div>";
 }

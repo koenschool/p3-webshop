@@ -25,6 +25,10 @@ body{
     border-style: solid;
 }
 
+.menu-content a:hover{
+border-radius: 0;
+}
+
 .menu-content{
     display:none;
     position:absolute;
@@ -121,6 +125,21 @@ th{
     justify-content: center;
 }
 
+/* ik was hier meer bezig om de website er meer rond eruit laten te zien */
+
+/* 
+.zoek select, .zoek input, .zoek option{
+    border-radius:10px;
+}
+
+.zoek option{
+    background-color: #8A90A9;
+}
+
+.zoek select:hover, .zoek input:hover, .zoek option:hover{
+    color:#FFFEFF;
+    border-color:#3A466C;
+} */
 .rows{
     font-size: 150%;
 }
