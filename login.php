@@ -48,6 +48,7 @@ try{
     <title>Login</title>
 </head>
 <body>
+    <h1>Inloggen</h1>
     <form method="post" action="">
         <label>Gebruikersnaam:</label><br>
         <input type="text" name="gebruikersnaam"require><br>
